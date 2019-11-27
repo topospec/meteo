@@ -2,7 +2,7 @@
 
 **Weather Station based in Arduino**
 
-![meteoAR from the roof (https://github.com/caparrosmatias/meteo/blob/master/images/foto_exterior.jpg)
+![meteoAR from the roof] (https://github.com/caparrosmatias/meteo/blob/master/images/foto_exterior.jpg)
 
 This weather station was built from scratch, to use it in an astronomic observatory.
 
