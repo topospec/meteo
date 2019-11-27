@@ -3,7 +3,7 @@
 **Weather Station based in Arduino**
 
 
-![alt text](https://raw.githubusercontent.com/caparrosmatias/meteo/master/images/foto_exterior.jpg)
+![alt text](https://raw.githubusercontent.com/caparrosmatias/meteo/master/images/foto_exterior_less.jpg)
 
 
 This weather station was built from scratch, to use it in an astronomic observatory.
