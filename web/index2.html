@@ -1,0 +1,65 @@
+<html><head><title>Estacion Meteorologica</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+        <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="index3.css" rel="stylesheet" type="text/css">
+    </head><body>
+
+<div class="section"><div class="container"><div class="row"><div class="col-md-12"><div class="page-header"><h1 class="text-center">Estación Meteorológica</h1><br><br><h2 class="text-center">Visualización de datos</h2></div></div></div></div></div>
+
+
+<?php
+$conexion=mysqli_connect("mysql.hostinger.com.ar","u333268383_meteo","mati9603","u333268383_meteo") or
+    die("Problemas con la conexión");
+
+//$rs = mysql_query("SELECT MAX(fecha, id, templm, tempdht, tempprom, presion, humedadamb, humedadsuelo1, humedadsuelo2, humedadsuelo3, luz, procio, velocidadviento, stermica ) AS numero FROM  `estacion`");
+
+$numero=mysqli_query($conexion,"SELECT * FROM estacion ORDER BY numero DESC LIMIT 1 , 1") or
+  die("Problemas en el select:".mysqli_error($conexion));
+
+//$extraido= mysqli_fetch_array($numero);
+/*
+$maximo= $extraido['numero'];
+
+$datos=mysqli_query($conexion,"SELECT * FROM  `estacion` WHERE  `numero` ="$maximo" LIMIT 0 , 30") or
+  die("Problemas en el select:".mysqli_error($conexion));
+
+$informacion= mysqli_fetch_array($fecha);
+
+echo $informacion['fecha'] */
+
+
+while ($extraido=mysqli_fetch_array($numero))
+{
+  echo "Fecha: ".$extraido['fecha']."<br>";
+  echo "Numero de registro: ".$extraido['numero']."<br>";
+  echo "Identificador de estacion: ".$extraido['id']."<br>";
+  echo "Temperatura LM 35: ".$extraido['templm']." grados Celsius<br>";
+  echo "Temperatura DHT 11: ".$extraido['tempdht']." grados Celsius<br>";
+  echo "Temperatura BMP 180:".$extraido['tempbmp']." grados Celsius<br>";
+  echo "Temperatura PROMEDIO:".$extraido['tempprom']." grados Celsius<br>";
+  echo "Presion Atmosferica:".$extraido['presion']." hPa<br>";
+  echo "Humedad ambiental:".$extraido['humedadamb']." %<br>";
+  echo "Humedad del suelo 1:".$extraido['humedadsuelo1']." %<br>";
+  echo "Humedad del suelo 2:".$extraido['humedadsuelo2']." %<br>";
+  echo "Humedad del suelo 3:".$extraido['humedadsuelo3']." %<br>";
+  echo "Iluminancia:".$extraido['luz']." lux<br>";
+  echo "Punto de rocio:".$extraido['procio']." grados Celsius<br>";
+  echo "Velocidad del viento:".$extraido['velocidadviento']." km/h<br>";
+  echo "Sensacion termica:".$extraido['stermica']." grados Celsius<br>";
+  echo "<br>";
+  echo "<hr>";
+} 
+
+mysqli_close($conexion);
+?>
+
+
+
+
+
+
+</body>
+</html>
